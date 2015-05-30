@@ -38,7 +38,7 @@ REDDIT_CATEGORIES = [
     ('worldnews', 'worldnews', 200),
     ('worldnews', 'news', 200),
     ('worldnews', 'truenews', 200),
-]
+	]
 
 
 def get_soup(subreddit, partial_url) :
