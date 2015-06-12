@@ -23,7 +23,7 @@ def separate() :
 		if subreddit_new != subreddit_old :
 			if x != 0 : output_file.write('\n]')
 			else : x=1
-			output_file = open('subreddit/'+subreddit, 'w')
+			output_file = open('subreddit_urls/'+subreddit, 'w')
 			output_file.write('[\n')
 		else : output_file.write(",\n")
 		link = (reddit,subreddit,url,topic)
