@@ -6,6 +6,7 @@ import time
 from bs4 import BeautifulSoup
 from separator import filter_output, separate
 import os
+import sys
 
 URL = "http://www.reddit.com/r/"
 HEADER = { 'User-Agent' : 'hubble-tags' }
@@ -64,6 +65,8 @@ def output_url(output_file, soup, size) :
 		if post_a_tag['href'][:4] == 'http' :
 			output_file.write(post_a_tag['href'])
 			size+=1
+			sys.stdout.write('.')
+			sys.stdout.flush()
 	return size
 
 def main() :
