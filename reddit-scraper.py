@@ -4,7 +4,6 @@
 import httplib
 import time
 from bs4 import BeautifulSoup
-from separator import filter_output, separate
 import os
 import sys
 
@@ -63,7 +62,8 @@ def output_url(output_file, soup, size) :
 	post_a_tags = soup.find_all('a', class_='title may-blank ')
 	for post_a_tag in post_a_tags :
 		if post_a_tag['href'][:4] == 'http' :
-			output_file.write(post_a_tag['href'])
+			output_file.write(post_a_tag['href'].encode('utf-8','ignore'))
+			output_file.write('\n')
 			size+=1
 			sys.stdout.write('.')
 			sys.stdout.flush()
@@ -84,6 +84,7 @@ def main() :
 			if next_link == "" : break
 			partial_url = next_link.split('/')[-1]
 			size = output_url(output_file, soup, size)
+		sys.stdout.write('\n')
 		output_file.close()
 	CONNECTION.close()
 
